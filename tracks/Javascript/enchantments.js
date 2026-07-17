@@ -1,101 +1,69 @@
 // @ts-check
+//
 /**
- * Retrieve card from cards array at the 0-based position
+ * Get the position (index) of the card in the given stack
  *
- * @param {number[]} cards
- * @param {number} position
+ * @param {number[]} stack
+ * @param {number} card
  *
- * @returns {number} the card
+ * @returns {number} position of the card in the stack
  */
-export function getItem(cards, position) {
-  return cards[position];
+export function getCardPosition(stack, card) {
+  return stack.indexOf(card);
 }
 
 /**
- * Exchange card with replacementCard at the 0-based position
+ * Determine if the stack contains the card
  *
- * @param {number[]} cards
- * @param {number} position
- * @param {number} replacementCard
+ * @param {number[]} stack
+ * @param {number} card
  *
- * @returns {number[]} the cards with the change applied
+ * @returns {boolean} true if card is in the stack, false otherwise
  */
-export function setItem(cards, position, replacementCard) {
-  cards[position] = replacementCard;
-  return cards;
+export function doesStackIncludeCard(stack, card) {
+  return stack.includes(card);
 }
 
 /**
- * Insert newCard at the end of the cards array
+ * Determine if each card is even
  *
- * @param {number[]} cards
- * @param {number} newCard
+ * @param {number[]} stack
  *
- * @returns {number[]} the cards with the newCard applied
+ * @returns {boolean} true if all cards are even, false otherwise
  */
-export function insertItemAtTop(cards, newCard) {
-  cards.push(newCard);
-  return cards;
+export function isEachCardEven(stack) {
+  return stack.every(card => card % 2 === 0);
 }
 
 /**
- * Remove the card at the 0-based position
+ * Check if stack contains odd-value card
  *
- * @param {number[]} cards
- * @param {number} position
+ * @param {number[]} stack
  *
- * @returns {number[]} the cards without the removed card
+ * @returns {boolean} true if the array contains odd card, false otherwise
  */
-export function removeItem(cards, position) {
-  cards.splice(position, 1);
-  return cards;
+export function doesStackIncludeOddCard(stack) {
+  return stack.some(card => card % 2 !== 0);
 }
 
 /**
- * Remove card from the end of the cards array
+ * Get the first odd card from the stack
  *
- * @param {number[]} cards
+ * @param {number[]} stack
  *
- * @returns {number[]} the cards without the removed card
+ * @returns {number | undefined} the first odd value
  */
-export function removeItemFromTop(cards) {
-  cards.pop();
-  return cards;
+export function getFirstOddCard(stack) {
+  return stack.find(card => card % 2 !== 0);
 }
 
 /**
- * Insert newCard at beginning of the cards array
+ * Determine the position of the first card that is even
  *
- * @param {number[]} cards
- * @param {number} newCard
+ * @param {number[]} stack
  *
- * @returns {number[]} the cards including the new card
+ * @returns {number} position of the first card that is even
  */
-export function insertItemAtBottom(cards, newCard) {
-  cards.unshift(newCard);
-  return cards;
-}
-
-/**
- * Remove card from the beginning of the cards
- *
- * @param {number[]} cards
- *
- * @returns {number[]} the cards without the removed card
- */
-export function removeItemAtBottom(cards) {
-  cards.shift();
-  return cards;
-}
-
-/**
- * Compare the number of cards with the given stackSize
- *
- * @param {number[]} cards
- * @param {number} stackSize
- *
- * @returns {boolean} true if there are exactly stackSize number of cards, false otherwise
- */
-export function checkSizeOfStack(cards, stackSize) {
-  return cards.length === stackSize;
+export function getFirstEvenCardPosition(stack) {
+  return stack.findIndex(card => card % 2 === 0);
 }
