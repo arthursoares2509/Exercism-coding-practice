@@ -1,2 +1,5 @@
 # Exercism-coding-practice
-Coming soon
+
+Not sponsored
+
+Practical already solved code exercises from Exercism. 
